@@ -40,6 +40,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\GameController::controllJson',  '_route' => 'controll_json',);
         }
 
+        // claim_task
+        if ('/claim_task' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\GameController::clamTask',  '_route' => 'claim_task',);
+        }
+
         // tavern_json
         if ('/tavern_json' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\GameController::tavernJson',  '_route' => 'tavern_json',);

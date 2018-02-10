@@ -7,6 +7,7 @@
  */
 namespace App\Controller;
 
+use App\Entity\ActiveTask;
 use App\Entity\TavernTask;
 use App\Entity\Window_user_stats;
 use App\Repository\TavernTaskRepository;
@@ -95,6 +96,7 @@ class GameController extends AbstractController
         $first_task_id = $query[0]->id;
 
         $taskArray = array(
+            'task_id' => $query[0]->id,
             'task_content' => $query[0]->task_content,
             'task_time' => $query[0]->task_time,
             'task_reward' => $query[0]->task_reward,
@@ -114,6 +116,7 @@ class GameController extends AbstractController
                 $second_task_id = $query[0]->id;
             }
             $task2Array = array(
+                'task_id' => $query[0]->id,
                 'task_content' => $query[0]->task_content,
                 'task_time' => $query[0]->task_time,
                 'task_reward' => $query[0]->task_reward,
@@ -124,6 +127,7 @@ class GameController extends AbstractController
             );
         } else {
             $task2Array = array(
+                'task_id' => $query[0]->id,
                 'task_content' => $query[0]->task_content,
                 'task_time' => $query[0]->task_time,
                 'task_reward' => $query[0]->task_reward,
@@ -143,6 +147,29 @@ class GameController extends AbstractController
         );
 
         echo json_encode($taskJson);
+
+        return new Response('');
+    }
+
+
+    /**
+     * @Route("claim_task", name="claim_task")
+     */
+    public function clamTask(Request $request){
+
+        $data = json_decode($request->getContent());
+
+        $task_id = $data->task_id;
+        $user_id = $this->get('session')->get('user_id');
+
+        $query = new ActiveTask();
+
+        $query->setTaskId($task_id);
+        $query->setUserId($user_id);
+
+        $do = $this->getDoctrine()->getManager();
+        $do->persist($query);
+        $do->flush();
 
         return new Response('');
     }

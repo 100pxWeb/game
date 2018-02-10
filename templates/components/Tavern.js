@@ -5,6 +5,7 @@ class Tavern extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            task_id: null,
             task_title: null,
             task_content: null,
             task_time: null,
@@ -13,6 +14,7 @@ class Tavern extends React.Component {
             task_item_reward: null,
             task_special_reward: null,
 
+            task2_id: null,
             task2_title: null,
             task2_content: null,
             task2_time: null,
@@ -28,6 +30,7 @@ class Tavern extends React.Component {
             .then(function (res) {
                 console.log(res);
                 self.setState({
+                    task_id: res.data.task_info['task_id'],
                     task_title: res.data.task_info['task_title'],
                     task_content: res.data.task_info['task_content'],
                     task_time: res.data.task_info['task_time'],
@@ -35,7 +38,8 @@ class Tavern extends React.Component {
                     task_gold_reward: res.data.task_info['task_gold_reward'],
                     task_item_reward: res.data.task_info['task_item_reward'],
                     task_special_reward: res.data.task_info['task_special_reward'],
-                    
+
+                    task2_id: res.data.task2_info['task_id'],
                     task2_title: res.data.task2_info['task_title'],
                     task2_content: res.data.task2_info['task_content'],
                     task2_time: res.data.task2_info['task_time'],
@@ -47,13 +51,31 @@ class Tavern extends React.Component {
             })
     }
 
+    claimTask(task){
+        if(task == 1){
+            var post_data = {
+                task_id: this.state.task_id
+            };
+        } else {
+            var post_data = {
+                task_id: this.state.task2_id
+            };
+        }
+
+
+        axios.post('http://localhost:8000/claim_task', post_data)
+            .then(function (res) {
+                console.log(res);
+            })
+    }
+
     render() {
         return (
             <div className="bar_view">
                 <div id="task-list" className="available-tasks-list">
                     <div id="close-icon" className="close-icon"></div>
                     <ul>
-                        <li></li>
+                        <li><button onClick={this.claimTask.bind(this, 1)}>Przyjmij</button></li>
                         <div className="task_preview">
                             <div className="task_content">
                                 {this.state.task_content}
@@ -75,7 +97,7 @@ class Tavern extends React.Component {
                             </div>
                         </div>
 
-                        <li></li>
+                        <li><button onClick={this.claimTask.bind(this, 2)}>Przyjmij</button></li>
                         <div className="task_preview">
                             <div className="task_content">
                                 {this.state.task2_content}

@@ -400,6 +400,10 @@
         <argument type="service" id="service_locator.aqxUcvZ.App\Controller\UsersController"/>
       </call>
     </service>
+    <service id="App\Repository\ActiveTaskRepository" class="App\Repository\ActiveTaskRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -428,7 +432,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.cN1gp8i"/>
+      <argument type="service" id="service_locator.1nOE.iw"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -3193,7 +3197,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.l8VJlp0"/>
+      <argument type="service" id="service_locator.t7pNs8t"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4019,6 +4023,8 @@
     <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActiveTaskRepository" class="App\Repository\ActiveTaskRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ActiveTaskRepository" class="App\Repository\ActiveTaskRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UsersRespository" class="App\Repository\UsersRespository" public="false" autowire="true" abstract="true"/>
@@ -4121,11 +4127,15 @@
         <argument>make:voter</argument>
       </call>
     </service>
+    <service id="service_locator.X2oy6.D" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
     <service id="service_locator.onT6u_t" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
-    <service id="service_locator.cN1gp8i" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.1nOE.iw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
@@ -4391,9 +4401,10 @@
       </call>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
-    <service id="service_locator.l8VJlp0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.t7pNs8t" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ActiveTaskRepository" type="service" id="App\Repository\ActiveTaskRepository"/>
         <argument key="App\Repository\TavernTaskRepository" type="service" id="App\Repository\TavernTaskRepository"/>
         <argument key="App\Repository\UsersRespository" type="service" id="App\Repository\UsersRespository"/>
         <argument key="App\Repository\Window_user_statsRepository" type="service" id="App\Repository\Window_user_statsRepository"/>
