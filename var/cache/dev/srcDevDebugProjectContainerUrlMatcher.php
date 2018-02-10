@@ -35,6 +35,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\GameController::GameView',  '_route' => 'app_game',);
         }
 
+        // controll_json
+        if ('/controll_json' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\GameController::controllJson',  '_route' => 'controll_json',);
+        }
+
         // app_users_new
         if ('/users/new' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\UsersController::newAction',  '_route' => 'app_users_new',);

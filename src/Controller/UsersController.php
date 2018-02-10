@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Login;
 use App\Entity\Users;
+use App\Entity\Window_user_stats;
 use App\Repository\UsersRespository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,8 +40,10 @@ class UsersController extends AbstractController
      * @Route("users/new")
      */
     public function newAction(){
-        $user = new Users();
-        $user->setMail('mail@mail3.com');
+        $user = new Window_user_stats();
+        $user->setGold('100');
+        $user->setExp('100');
+        $user->setStamina('100');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
@@ -89,7 +92,7 @@ class UsersController extends AbstractController
                 if($db_user){
 
                     $session = new Session();
-                    $session->set('logged', 'prawda11');
+                    $session->set('logged', true);
                     $session->set('user_id', $db_user->id);
 
                     return $this->redirectToRoute('app_game', array(

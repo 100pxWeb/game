@@ -1,3 +1,1050 @@
 body {
-    color: green;
-}
+    margin: 0;
+    padding: 0;
+    background-image: url(../templates/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: url(../templates/cursor.png), auto; }
+
+a,
+input,
+button {
+    cursor: url(../templates/cursor.png), auto; }
+
+.game_render .upper_panel {
+    display: none; }
+.game_render .main_handler {
+    display: flex; }
+.game_render .main_handler .load_game {
+    top: -15px;
+    width: 60%;
+    max-width: 922px;
+    max-height: 696px;
+    position: relative;
+    left: -50px;
+    display: block; }
+.game_render .main_handler .load_game:after {
+    content: "";
+    display: block;
+    padding-bottom: 60%; }
+.game_render .main_handler .load_game .view,
+.game_render .main_handler .load_game .city_view,
+.game_render .main_handler .load_game .character_view,
+.game_render .main_handler .load_game .battle_view,
+.game_render .main_handler .load_game .bar_view,
+.game_render .main_handler .load_game .guild_view,
+.game_render .main_handler .load_game .messages_view {
+    max-height: 73vh; }
+.game_render .main_handler .load_game .view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(90% - 30px);
+    background-image: url();
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .view .tavern {
+    width: 14%;
+    left: 20%;
+    top: 3%;
+    position: absolute; }
+.game_render .main_handler .load_game .view .tavern:after {
+    content: "";
+    display: block;
+    padding-bottom: 70%; }
+.game_render .main_handler .load_game .view .tavern_man_sprite img {
+    width: 5%;
+    left: 28%;
+    top: 17%;
+    opacity: 0.95;
+    position: absolute; }
+.game_render .main_handler .load_game .view .tavern_man_sprite img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+.game_render .main_handler .load_game .city_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(90% - 30px);
+    background-image: url(../templates/city/main_city.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .city_view .tavern {
+    width: 14%;
+    left: 20%;
+    top: 3%;
+    position: absolute; }
+.game_render .main_handler .load_game .city_view .tavern:after {
+    content: "";
+    display: block;
+    padding-bottom: 70%; }
+.game_render .main_handler .load_game .city_view .tavern_man_sprite img {
+    width: 5%;
+    left: 28%;
+    top: 17%;
+    opacity: 0.95;
+    position: absolute; }
+.game_render .main_handler .load_game .city_view .tavern_man_sprite img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+.game_render .main_handler .load_game .messages_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(90% - 30px);
+    background-image: url(../templates/basic_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .messages_view .top_panel {
+    display: flex;
+    background: rgba(0, 0, 0, 0.47);
+    padding: 8px 10px;
+    color: #e5e5e5;
+    font-size: 0.9em;
+    font-family: "Risque", cursive; }
+.game_render .main_handler .load_game .messages_view .sender {
+    width: 30%; }
+.game_render .main_handler .load_game .messages_view .topic,
+.game_render .main_handler .load_game .messages_view .title {
+    width: 50%; }
+.game_render .main_handler .load_game .messages_view .date {
+    width: 20%; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row {
+    display: flex;
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    padding: 10px;
+    background: none;
+    transition: all .2s; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row:hover {
+    background: rgba(0, 0, 0, 0.27); }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .show {
+    display: block !important; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .hide {
+    display: none !important; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view {
+    display: none;
+    position: absolute;
+    background-image: url(../templates/basic_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: calc(90% - 30px);
+    left: 0;
+    top: 0;
+    padding-top: 50px;
+    z-index: 999; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view .inside_sender,
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view .inside_title,
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view .inside_content {
+    box-shadow: inset 0px 0px 37px 0px black;
+    background: none;
+    border: 1px solid rgba(34, 107, 168, 0.46);
+    border-radius: 5px;
+    width: 40%;
+    padding: 5px;
+    outline: none;
+    width: calc(100% - 70px);
+    margin: 10px 30px; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view .close_icon {
+    width: 45px;
+    height: 40px;
+    background-image: url(../templates/icons/close.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    opacity: 0.8;
+    transition: all .2s; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view .close_icon:hover {
+    opacity: 1; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view form {
+    margin-top: 40px;
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 11; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view label {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 1.2em;
+    margin-bottom: 25px; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view input[type=text] {
+    box-shadow: inset 0px 0px 37px 0px black;
+    background: none;
+    border: 1px solid rgba(34, 107, 168, 0.46);
+    border-radius: 5px;
+    width: 40%;
+    padding: 5px;
+    outline: none;
+    color: #e8e8e8;
+    font-family: "Berkshire Swash", cursive; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view textarea {
+    box-shadow: inset 0px 0px 37px 0px black;
+    background: none;
+    border: 1px solid rgba(34, 107, 168, 0.46);
+    border-radius: 5px;
+    width: 40%;
+    padding: 5px;
+    outline: none;
+    color: #e8e8e8;
+    font-family: "Berkshire Swash", cursive;
+    overflow-x: hidden; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view span {
+    font-family: "Berkshire Swash", cursive;
+    font-size: 1.1em;
+    color: #d3bd62;
+    display: block;
+    position: relative;
+    margin: 15px 0; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view span:before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: -30px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../templates/icons/gold_icon.png);
+    background-size: 100% 100%; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view input[type=submit] {
+    background: none;
+    background-image: url(../templates/icons/accept.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 62px;
+    height: 55px;
+    border: none;
+    opacity: 0.7;
+    transition: all .2s; }
+.game_render .main_handler .load_game .messages_view .msg_content .msg_row .msg_view input[type=submit]:hover {
+    opacity: 1; }
+.game_render .main_handler .load_game .guild_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(90% - 30px);
+    background-image: url(../templates/basic_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .guild_view .top_menu {
+    display: flex;
+    background: rgba(20, 40, 51, 0.99); }
+.game_render .main_handler .load_game .guild_view .top_menu .card {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px 5px;
+    opacity: 0.6;
+    font-family: "Berkshire Swash", cursive;
+    color: #B58F47;
+    border: 1px solid transparent;
+    transition: all .2s; }
+.game_render .main_handler .load_game .guild_view .top_menu .card:hover {
+    z-index: 10;
+    opacity: 1; }
+.game_render .main_handler .load_game .guild_view .top_menu .active {
+    z-index: 10;
+    opacity: 1;
+    border: 1px solid #B58F47;
+    border-bottom-right-radius: 35px; }
+.game_render .main_handler .load_game .guild_view .flags {
+    width: 50%;
+    height: 30%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    background-image: url(../templates/flags_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; }
+.game_render .main_handler .load_game .guild_view .flags:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%; }
+.game_render .main_handler .load_game .guild_view .hide {
+    display: none !important; }
+.game_render .main_handler .load_game .guild_view #your_guild .no_guild_handler {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%; }
+.game_render .main_handler .load_game .guild_view #your_guild .no_guild_handler h3 {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 1.5em;
+    letter-spacing: 1px; }
+.game_render .main_handler .load_game .guild_view #your_guild .no_guild_handler p {
+    color: #e6e6e6;
+    font-family: "Risque", cursive;
+    width: 50%;
+    text-align: center;
+    letter-spacing: 0.5px;
+    line-height: 20px; }
+.game_render .main_handler .load_game .guild_view #your_guild .no_guild_handler button {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    letter-spacing: 1px;
+    background: none;
+    background-image: url(../templates//btn-bg.png);
+    background-size: cover;
+    background-position: '200px';
+    transition: all .2s;
+    opacity: 0.8;
+    border: 10px solid transparent;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    border-image: url(../templates/btnbrd.png) 53 round;
+    margin-top: 30px; }
+.game_render .main_handler .load_game .guild_view #your_guild .no_guild_handler button:hover {
+    opacity: 1;
+    background-position: '500px'; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild {
+    display: flex;
+    flex-direction: column; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild form {
+    width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 11; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild label {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 1.2em;
+    margin-bottom: 25px; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild input[type=text] {
+    box-shadow: inset 0px 0px 37px 0px black;
+    background: none;
+    border: 1px solid rgba(34, 107, 168, 0.46);
+    border-radius: 5px;
+    width: 40%;
+    padding: 5px;
+    outline: none;
+    color: #e8e8e8;
+    font-family: "Berkshire Swash", cursive; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild span {
+    font-family: "Berkshire Swash", cursive;
+    font-size: 1.1em;
+    color: #d3bd62;
+    display: block;
+    position: relative;
+    margin: 15px 0; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild span:before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: -30px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../templates/icons/gold_icon.png);
+    background-size: 100% 100%; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild input[type=submit] {
+    background: none;
+    background-image: url(../templates/icons/accept.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 62px;
+    height: 55px;
+    border: none;
+    opacity: 0.7;
+    transition: all .2s; }
+.game_render .main_handler .load_game .guild_view #your_guild .register_a_guild input[type=submit]:hover {
+    opacity: 1; }
+.game_render .main_handler .load_game .guild_view #your_guild .guild_panel {
+    display: flex;
+    width: 100%;
+    height: 90%; }
+.game_render .main_handler .load_game .guild_view #your_guild .guild_panel .info_side {
+    width: 60%; }
+.game_render .main_handler .load_game .guild_view #your_guild .guild_panel .members_side {
+    width: 40%;
+    background: rgba(0, 0, 0, 0.47); }
+.game_render .main_handler .load_game .guild_view #your_guild .guild_panel .members_side .guild_member {
+    color: #eaeaea;
+    font-size: 0.9em;
+    font-family: "Risque", cursive;
+    margin-bottom: 2px; }
+.game_render .main_handler .load_game .guild_view #your_guild .guild_panel .members_side .guild_leader {
+    color: #ffe1a8;
+    margin-bottom: 8px; }
+.game_render .main_handler .load_game .guild_view #your_guild .show {
+    display: block !important; }
+.game_render .main_handler .load_game .guild_view #your_guild .hide {
+    display: none !important; }
+.game_render .main_handler .load_game .bar_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round;
+    background-image: url(../templates/backgrounds/approved/tavern.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat; }
+.game_render .main_handler .load_game .bar_view .tavern_npc img {
+    width: 23%;
+    position: absolute;
+    left: 15%;
+    top: 28%; }
+.game_render .main_handler .load_game .bar_view .task_complete {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(18, 18, 18, 0.78);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px; }
+.game_render .main_handler .load_game .bar_view .task_complete .reward_to_claim .reward_handler .reward_exp,
+.game_render .main_handler .load_game .bar_view .task_complete .reward_to_claim .reward_handler .reward_gold {
+    position: relative;
+    text-align: center;
+    color: #d3bd62;
+    font-family: "Risque", cursive;
+    font-size: 1em;
+    margin-bottom: 20px; }
+.game_render .main_handler .load_game .bar_view .task_complete .reward_to_claim .reward_handler .reward_exp:before {
+    position: absolute;
+    left: 50px;
+    content: '';
+    display: block;
+    width: 30px;
+    height: 25px;
+    background-image: url(../templates/icons/book-icon.png);
+    background-size: 100% 100%; }
+.game_render .main_handler .load_game .bar_view .task_complete .reward_to_claim .reward_handler .reward_gold:before {
+    position: absolute;
+    left: 50px;
+    content: '';
+    display: block;
+    width: 28px;
+    height: 25px;
+    background-image: url(../templates/icons/gold_icon.png);
+    background-size: 100% 100%; }
+.game_render .main_handler .load_game .bar_view .task_complete .form input[type=submit] {
+    background: none;
+    background-image: url(../templates/icons/accept.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 62px;
+    height: 55px;
+    border: none;
+    opacity: 0.7;
+    transition: all .2s; }
+.game_render .main_handler .load_game .bar_view .task_complete .form input[type=submit]:hover {
+    opacity: 1; }
+.game_render .main_handler .load_game .bar_view .task_complete .subtitle {
+    color: #d3bd62;
+    font-family: "Risque", cursive;
+    font-size: 1em;
+    margin-bottom: 10px;
+    padding: 0 40px; }
+.game_render .main_handler .load_game .bar_view .task_complete .title {
+    color: white;
+    font-family: "Risque", cursive;
+    font-size: 1.2em; }
+.game_render .main_handler .load_game .bar_view .task_complete a {
+    font-family: "Risque", cursive;
+    color: #cecece;
+    font-size: 1.1em;
+    margin-top: 8px;
+    text-align: center;
+    transition: all .2s; }
+.game_render .main_handler .load_game .bar_view .task_complete a:hover {
+    color: white; }
+.game_render .main_handler .load_game .bar_view .time_handler {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(18, 18, 18, 0.78);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px; }
+.game_render .main_handler .load_game .bar_view .time_handler .subtitle {
+    color: #d3bd62;
+    font-family: "Risque", cursive;
+    font-size: 0.8em;
+    margin-bottom: 25px;
+    padding: 0 40px; }
+.game_render .main_handler .load_game .bar_view .time_handler .title {
+    color: white;
+    font-family: "Risque", cursive;
+    font-size: 1em;
+    margin-bottom: 10px; }
+.game_render .main_handler .load_game .bar_view .time_handler #task_time_remain {
+    color: #d3bd62;
+    font-family: "Risque", cursive;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: column; }
+.game_render .main_handler .load_game .bar_view .time_handler #task_time_remain a {
+    color: white;
+    font-size: 1.2em;
+    margin-top: 8px;
+    text-align: center; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list {
+    display: none;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    background: rgba(18, 18, 18, 0.78); }
+.game_render .main_handler .load_game .bar_view .available-tasks-list .close-icon {
+    width: 45px;
+    height: 40px;
+    background-image: url(../templates/icons/close.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -9px;
+    top: -11px;
+    opacity: 0.8;
+    transition: all .2s; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list .close-icon:hover {
+    opacity: 1; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list ul li {
+    list-style: none;
+    font-family: "Berkshire Swash", cursive;
+    color: #B58F47; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list form {
+    position: relative;
+    margin-bottom: 35px; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list form input[type=submit] {
+    position: absolute;
+    right: 25px;
+    bottom: 35px;
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    letter-spacing: 1px;
+    background: none;
+    background-image: url(../templates//btn-bg.png);
+    background-size: cover;
+    background-position: '200px';
+    transition: all .2s;
+    opacity: 0.8;
+    border: 10px solid transparent;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    border-image: url(../templates/btnbrd.png) 53 round;
+    margin-top: 10px; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list form input[type=submit]:hover {
+    opacity: 1;
+    background-position: '500px'; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list .task_content {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-bottom: 10px; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list .task_complete_time {
+    font-family: "Risque", cursive;
+    color: #d1d1d1;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin-left: 20px;
+    margin-bottom: 2px; }
+.game_render .main_handler .load_game .bar_view .available-tasks-list .task_rewards {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin-left: 20px;
+    margin-bottom: 2px; }
+.game_render .main_handler .load_game .character_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .battle_view {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 15px;
+    display: block;
+    z-index: 1;
+    border: 80px solid transparent;
+    border-image: url(../templates/test.png) 160 round; }
+.game_render .main_handler .load_game .border {
+    position: absolute;
+    width: calc(100%);
+    height: calc(100%);
+    display: block;
+    left: -60px;
+    top: -60px; }
+
+.fighters_handler {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background-image: url(../templates/backgrounds/approved/game_background_4.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; }
+.fighters_handler .skip-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    z-index: 99; }
+.fighters_handler .reward-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 50%;
+    background: yellow;
+    opacity: 0;
+    display: none;
+    z-index: 99; }
+.fighters_handler #right_fighter_health {
+    width: 100%;
+    background: red;
+    height: 15px; }
+.fighters_handler #left_fighter_health {
+    width: 100%;
+    background: red;
+    height: 15px; }
+.fighters_handler #fighter_left img,
+.fighters_handler #fighter_right img {
+    height: 100%;
+    width: auto; }
+.fighters_handler #fighter_left {
+    width: 35%;
+    height: 50%;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    position: relative; }
+.fighters_handler #fighter_right {
+    width: 35%;
+    height: 50%;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    position: relative; }
+
+.option_bar {
+    width: 250px;
+    height: 71vh;
+    border: 87px solid transparent;
+    border-image: url(../templates/test.png) 180 round; }
+.option_bar .logout {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5px;
+    margin-bottom: 15px; }
+.option_bar .logout a {
+    position: absolute;
+    top: 37px;
+    font-family: "Berkshire Swash", cursive;
+    text-transform: capitalize;
+    font-size: 0.8em;
+    text-decoration: none;
+    background: #b6914a;
+    display: inline-block;
+    color: #604b23;
+    padding: 1px 5px 3px 5px;
+    margin: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0 0 20px #000000;
+    -webkit-box-shadow: inset 0 0 20px #000000;
+    box-shadow: inset 0 0 20px #000000;
+    transition: all .2s; }
+.option_bar .logout a:hover {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+    color: #2f2512; }
+.option_bar .logout .gold {
+    display: flex; }
+.option_bar .logout .gold .icon {
+    width: 30px;
+    height: 30px;
+    background-image: url(../templates/gold_icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-right: 5px; }
+.option_bar .logout .gold span {
+    font-family: "Berkshire Swash", cursive;
+    color: #b58f47; }
+.option_bar .logout .exp {
+    display: flex;
+    margin-right: 10px; }
+.option_bar .logout .exp .icon {
+    width: 30px;
+    height: 30px;
+    background-image: url(../templates/book-icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-right: 5px; }
+.option_bar .logout .exp span {
+    font-family: "Berkshire Swash", cursive;
+    color: #b58f47; }
+.option_bar .logout .stamina {
+    display: flex;
+    margin-right: 10px; }
+.option_bar .logout .stamina .icon {
+    width: 30px;
+    height: 30px;
+    background-image: url(../templates/stamina-icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-right: 5px; }
+.option_bar .logout .stamina span {
+    font-family: "Berkshire Swash", cursive;
+    color: #b58f47; }
+.option_bar .options {
+    display: flex;
+    flex-direction: column; }
+.option_bar .options a {
+    font-family: "Berkshire Swash", cursive;
+    text-align: center;
+    text-decoration: none;
+    color: #B6914A;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 40px);
+    height: 1px;
+    margin: 5px 0;
+    border: 21px solid transparent;
+    border-image: url(../templates/btnbrd.png) 53 round;
+    background-image: url(../templates//btn-bg.png);
+    background-size: cover;
+    background-position: '200px';
+    transition: all .2s;
+    opacity: 0.7; }
+.option_bar .options a:hover {
+    opacity: 1;
+    background-position: '500px'; }
+
+.character_handler {
+    display: flex;
+    width: 100%;
+    background-image: url(../templates/basic_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    position: relative;
+    z-index: 9999; }
+.character_handler .character_eq {
+    width: 55%;
+    max-height: 100%;
+    margin-top: 10px; }
+.character_handler .character_eq .character_backpack {
+    display: block;
+    position: relative; }
+.character_handler .character_eq .character_backpack .row {
+    display: flex;
+    padding: 0 15px; }
+.character_handler .character_eq .character_backpack .item_place {
+    position: relative;
+    width: calc(100% / 5);
+    height: calc(80% / 5);
+    background-image: url(../templates/basic-item-place.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #243f57;
+    margin: 5px 5px 0 0; }
+.character_handler .character_eq .character_backpack .draggable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%; }
+.character_handler .character_eq .character_backpack .draggable img {
+    width: 80%;
+    opacity: 0.8; }
+.character_handler .character_eq .character_backpack .draggable img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+.character_handler .character_eq .character_on_eq {
+    display: block;
+    position: relative; }
+.character_handler .character_eq .character_on_eq .character_view_handler {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 3.5px; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar {
+    width: 20%; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar .item_place_eq {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 15%;
+    background-image: url(../templates/basic-item-drop.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #243f57;
+    margin: 5px 5px 0 0; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar .item_place_eq .draggable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar .item_place_eq .draggable img {
+    width: 80%;
+    opacity: 0.8; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar .item_place_eq .draggable img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+.character_handler .character_eq .character_on_eq .character_view_handler .left_bar .droppable {
+    position: relative; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase {
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase .character_info .nick {
+    font-family: "Berkshire Swash", cursive;
+    color: #B58F47;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 5px; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase .character_info .level {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 0.9em;
+    text-align: center; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase .character_info .exp {
+    ont-family: "Risque", cursive;
+    color: #dbdbdb;
+    font-size: 0.8em;
+    text-align: center; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase img {
+    width: 80%;
+    opacity: 0.8; }
+.character_handler .character_eq .character_on_eq .character_view_handler .character_showcase img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+.character_handler .character_eq .character_on_eq .character_view_handler .right_bar {
+    width: 20%; }
+.character_handler .character_eq .character_on_eq .character_view_handler .right_bar .item_place_eq {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 15%;
+    background-image: url(../templates/basic-item-drop.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #243f57;
+    margin: 5px 5px 0 0; }
+.character_handler .character_eq .character_on_eq .character_view_handler .right_bar .droppable {
+    position: relative; }
+.character_handler .character_eq .character_on_eq .row {
+    display: flex;
+    padding: 0 15px; }
+.character_handler .character_eq .character_on_eq .droppable {
+    position: relative; }
+.character_handler .character_stats {
+    width: 45%;
+    max-height: 100%; }
+.character_handler .character_stats h3 {
+    font-family: "Berkshire Swash", cursive;
+    color: #B58F47;
+    font-size: 1.1em;
+    text-transform: capitalize; }
+.character_handler .character_stats .stat_box {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 0.9em;
+    position: relative;
+    width: 50%;
+    margin-bottom: 20px; }
+.character_handler .character_stats .stat_box span {
+    color: #e5e5e5; }
+.character_handler .character_stats .stat_box img {
+    width: 5%;
+    position: relative;
+    top: 5px; }
+.character_handler .character_stats .stat_box form {
+    position: absolute;
+    top: 0;
+    right: 0; }
+.character_handler .character_stats .stat_box form input[type=submit] {
+    border: none;
+    background: none;
+    background-image: url(../templates/icons/plus.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 32px;
+    opacity: 0.7;
+    transition: all .2s; }
+.character_handler .character_stats .stat_box form input[type=submit]:hover {
+    opacity: 1; }
+.character_handler .character_stats .stat_box_dmg {
+    font-family: "Risque", cursive;
+    color: #d3bd62;
+    font-size: 1em;
+    position: relative;
+    width: 50%; }
+
+[data-tooltip] {
+    position: relative;
+    z-index: 9999999999;
+    cursor: pointer; }
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; }
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2; }
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid rgba(51, 51, 51, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0; }
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1; }
+
+.fadeOutUp {
+    color: red;
+    font-size: 3em;
+    position: absolute;
+    left: 40%;
+    font-weight: 700;
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+@-webkit-keyframes fadeOutUp {
+    0% {
+        opacity: 1; }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0); } }
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1; }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0); } }
+
+/*# sourceMappingURL=main.css.map */

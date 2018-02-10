@@ -10,16 +10,17 @@ class __TwigTemplate_2ed5c719e8b04625c2b0669061f378451bb160ee4729042f1229e487360
         $this->parent = false;
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e0a31597c6bca5eedac12f5ab102e052f3127f41965f3d8e301044f441e878eb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e0a31597c6bca5eedac12f5ab102e052f3127f41965f3d8e301044f441e878eb->enter($__internal_e0a31597c6bca5eedac12f5ab102e052f3127f41965f3d8e301044f441e878eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "game.html.twig"));
+        $__internal_82bd45e913a18fdcd13d113e788a06a416cdc3d0aa234a00886993ef33d549ca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_82bd45e913a18fdcd13d113e788a06a416cdc3d0aa234a00886993ef33d549ca->enter($__internal_82bd45e913a18fdcd13d113e788a06a416cdc3d0aa234a00886993ef33d549ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "game.html.twig"));
 
-        $__internal_422169ffdd57b02994fb4f78a128eb93a900c7e5692651d5f482ae8d511fa48d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_422169ffdd57b02994fb4f78a128eb93a900c7e5692651d5f482ae8d511fa48d->enter($__internal_422169ffdd57b02994fb4f78a128eb93a900c7e5692651d5f482ae8d511fa48d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "game.html.twig"));
+        $__internal_5082b5ab270e574d26bbfa7f59c302ab4c70d29b94644d240aca4c577b428028 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5082b5ab270e574d26bbfa7f59c302ab4c70d29b94644d240aca4c577b428028->enter($__internal_5082b5ab270e574d26bbfa7f59c302ab4c70d29b94644d240aca4c577b428028_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "game.html.twig"));
 
         // line 1
         echo "<!doctype html>
@@ -28,8 +29,11 @@ class __TwigTemplate_2ed5c719e8b04625c2b0669061f378451bb160ee4729042f1229e487360
     <title></title>
     <meta charset=\"utf-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
-
-</head>
+    ";
+        // line 7
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 10
+        echo "</head>
 <body>
 <div id=\"app\">bbbbbbbbbbbbbbbbb CONTENT</div>
 
@@ -37,22 +41,44 @@ class __TwigTemplate_2ed5c719e8b04625c2b0669061f378451bb160ee4729042f1229e487360
     <div class=\"container text-center\">
         yo yo oyoy
         ";
-        // line 15
-        echo twig_escape_filter($this->env, (isset($context["test"]) || array_key_exists("test", $context) ? $context["test"] : (function () { throw new Twig_Error_Runtime('Variable "test" does not exist.', 15, $this->getSourceContext()); })()), "html", null, true);
+        // line 17
+        echo twig_escape_filter($this->env, (isset($context["test"]) || array_key_exists("test", $context) ? $context["test"] : (function () { throw new Twig_Error_Runtime('Variable "test" does not exist.', 17, $this->getSourceContext()); })()), "html", null, true);
         echo "
     </div>
 </footer>
 <script type=\"text/javascript\" src=\"";
-        // line 18
+        // line 20
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("dist/assets/app.js"), "html", null, true);
         echo "\"></script>
 </body>
 </html>";
         
-        $__internal_e0a31597c6bca5eedac12f5ab102e052f3127f41965f3d8e301044f441e878eb->leave($__internal_e0a31597c6bca5eedac12f5ab102e052f3127f41965f3d8e301044f441e878eb_prof);
+        $__internal_82bd45e913a18fdcd13d113e788a06a416cdc3d0aa234a00886993ef33d549ca->leave($__internal_82bd45e913a18fdcd13d113e788a06a416cdc3d0aa234a00886993ef33d549ca_prof);
 
         
-        $__internal_422169ffdd57b02994fb4f78a128eb93a900c7e5692651d5f482ae8d511fa48d->leave($__internal_422169ffdd57b02994fb4f78a128eb93a900c7e5692651d5f482ae8d511fa48d_prof);
+        $__internal_5082b5ab270e574d26bbfa7f59c302ab4c70d29b94644d240aca4c577b428028->leave($__internal_5082b5ab270e574d26bbfa7f59c302ab4c70d29b94644d240aca4c577b428028_prof);
+
+    }
+
+    // line 7
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        $__internal_a999cdd87438bfff95a36f4903307b2360165725c01d08a6bd7b19c3169af3a7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a999cdd87438bfff95a36f4903307b2360165725c01d08a6bd7b19c3169af3a7->enter($__internal_a999cdd87438bfff95a36f4903307b2360165725c01d08a6bd7b19c3169af3a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_190e8b9cd5fff754d97f66568745201a4dc6affaeef06edd5fbfa5adb5c73ab0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_190e8b9cd5fff754d97f66568745201a4dc6affaeef06edd5fbfa5adb5c73ab0->enter($__internal_190e8b9cd5fff754d97f66568745201a4dc6affaeef06edd5fbfa5adb5c73ab0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 8
+        echo "        <link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/styles.css"), "html", null, true);
+        echo "\">
+    ";
+        
+        $__internal_190e8b9cd5fff754d97f66568745201a4dc6affaeef06edd5fbfa5adb5c73ab0->leave($__internal_190e8b9cd5fff754d97f66568745201a4dc6affaeef06edd5fbfa5adb5c73ab0_prof);
+
+        
+        $__internal_a999cdd87438bfff95a36f4903307b2360165725c01d08a6bd7b19c3169af3a7->leave($__internal_a999cdd87438bfff95a36f4903307b2360165725c01d08a6bd7b19c3169af3a7_prof);
 
     }
 
@@ -68,7 +94,7 @@ class __TwigTemplate_2ed5c719e8b04625c2b0669061f378451bb160ee4729042f1229e487360
 
     public function getDebugInfo()
     {
-        return array (  47 => 18,  41 => 15,  25 => 1,);
+        return array (  73 => 8,  64 => 7,  51 => 20,  45 => 17,  36 => 10,  34 => 7,  26 => 1,);
     }
 
     public function getSourceContext()
@@ -79,7 +105,9 @@ class __TwigTemplate_2ed5c719e8b04625c2b0669061f378451bb160ee4729042f1229e487360
     <title></title>
     <meta charset=\"utf-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
-
+    {% block stylesheets %}
+        <link rel=\"stylesheet\" href=\"{{ asset('css/styles.css') }}\">
+    {% endblock %}
 </head>
 <body>
 <div id=\"app\">bbbbbbbbbbbbbbbbb CONTENT</div>
