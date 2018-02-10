@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <title>{% block title %}Welcome to the SpaceBar{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+
+{{ error_login }}
+<footer class="footer">
+    <div class="container text-center">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+</footer>
+
+</body>
+</html>
