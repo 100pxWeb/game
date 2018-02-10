@@ -109,7 +109,7 @@ class UsersController extends AbstractController
             $error_login = null;
         }
         $this->get('session')->remove('error_login');
-        return $this->render('main/welcome.html.twig', array(
+        return $this->render('welcome.html.twig', array(
             'form' => $form->createView(),
             'error_login' => $error_login
         ));

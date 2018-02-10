@@ -22,7 +22,7 @@ class GameController extends AbstractController
     public function GameView(){
         if(!$this->get('session')->get('logged')){
             return $this->redirectToRoute('app_welcome');
-        } 
+        }
 
         $request = Request::createFromGlobals();
         $test = $request->query->get('testing');
@@ -31,7 +31,7 @@ class GameController extends AbstractController
         $sejsa = $this->get('session')->get('logged');
         $user_id = $this->get('session')->get('user_id');
 
-        return $this->render('main/game.html.twig', array(
+        return $this->render('game.html.twig', array(
             'test' => 'great to see you! ' . $test . ' SESJA: ' . $user_id
         ));
     }
