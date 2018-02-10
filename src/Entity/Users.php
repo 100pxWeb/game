@@ -22,7 +22,7 @@ class Users
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    private $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string")
@@ -64,6 +64,28 @@ class Users
     {
         $this->password = $password;
     }
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $nick;
+
+    /**
+     * @return mixed
+     */
+    public function getNick()
+    {
+        return $this->nick;
+    }
+
+    /**
+     * @param mixed $nick
+     */
+    public function setNick($nick): void
+    {
+        $this->nick = $nick;
+    }
+
 
 
 

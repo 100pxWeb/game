@@ -84,18 +84,18 @@ class UsersController extends AbstractController
                 ->getRepository(Users::class)
                 ->findOneBy(array('mail' => $user_name, 'password' => $user_pass));
 
-                   $users = $this->getDoctrine()
-                   ->getRepository(UsersRespository::class)
-                   ->getUserId('1');
+
 
                 if($db_user){
 
                     $session = new Session();
                     $session->set('logged', 'prawda11');
+                    $session->set('user_id', $db_user->id);
 
                     return $this->redirectToRoute('app_game', array(
                         'testing' => $user_name . '' . $user_pass
                     ));
+
                 } else {
                         $session = new Session();
                         $session->set('error_login', 'Niepoprawny e-mail lub hasło, podróżniku.');
