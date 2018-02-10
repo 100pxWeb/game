@@ -384,6 +384,14 @@
         <argument type="service" id="service_locator.aqxUcvZ.App\Controller\GameController"/>
       </call>
     </service>
+    <service id="App\Controller\QueryController" class="App\Controller\QueryController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <tag name="container.service_subscriber.locator" id="service_locator.aqxUcvZ.App\Controller\QueryController"/>
+      <call method="setContainer">
+        <argument type="service" id="service_locator.aqxUcvZ.App\Controller\QueryController"/>
+      </call>
+    </service>
     <service id="App\Controller\UsersController" class="App\Controller\UsersController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -392,7 +400,15 @@
         <argument type="service" id="service_locator.aqxUcvZ.App\Controller\UsersController"/>
       </call>
     </service>
+    <service id="App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UsersRespository" class="App\Repository\UsersRespository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\Window_user_statsRepository" class="App\Repository\Window_user_statsRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -3177,7 +3193,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.AE.D.qt"/>
+      <argument type="service" id="service_locator.l8VJlp0"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3997,11 +4013,18 @@
     <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\GameController" class="App\Controller\GameController" public="false" autowire="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GameController" class="App\Controller\GameController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\GameController" class="App\Controller\GameController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\TavernTaskRepository" class="App\Repository\TavernTaskRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UsersRespository" class="App\Repository\UsersRespository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\UsersRespository" class="App\Repository\UsersRespository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\Window_user_statsRepository" class="App\Repository\Window_user_statsRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\Window_user_statsRepository" class="App\Repository\Window_user_statsRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -4368,10 +4391,12 @@
       </call>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
-    <service id="service_locator.AE.D.qt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.l8VJlp0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\TavernTaskRepository" type="service" id="App\Repository\TavernTaskRepository"/>
         <argument key="App\Repository\UsersRespository" type="service" id="App\Repository\UsersRespository"/>
+        <argument key="App\Repository\Window_user_statsRepository" type="service" id="App\Repository\Window_user_statsRepository"/>
       </argument>
     </service>
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface" public="false">
@@ -4423,6 +4448,11 @@
     </service>
     <service id="service_locator.aqxUcvZ.App\Controller\GameController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\GameController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service="service_locator.aqxUcvZ" method="withContext"/>
+    </service>
+    <service id="service_locator.aqxUcvZ.App\Controller\QueryController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\QueryController</argument>
       <argument type="service" id="service_container"/>
       <factory service="service_locator.aqxUcvZ" method="withContext"/>
     </service>

@@ -40,6 +40,16 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\GameController::controllJson',  '_route' => 'controll_json',);
         }
 
+        // tavern_json
+        if ('/tavern_json' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\GameController::tavernJson',  '_route' => 'tavern_json',);
+        }
+
+        // query_only
+        if ('/new/task' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\QueryController::querys',  '_route' => 'query_only',);
+        }
+
         // app_users_new
         if ('/users/new' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\UsersController::newAction',  '_route' => 'app_users_new',);

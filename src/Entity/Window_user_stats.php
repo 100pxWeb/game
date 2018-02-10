@@ -37,6 +37,12 @@ class Window_user_stats
     public $stamina;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    public $level;
+
+
+    /**
      * @return mixed
      */
     public function getGold()
@@ -82,6 +88,19 @@ class Window_user_stats
     public function setStamina($stamina): void
     {
         $this->stamina = $stamina;
+    }
+    /**
+     * @return mixed
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }/**
+     * @param mixed $level
+     */
+    public function setLevel($level): void
+    {
+        $this->level = $level;
     }
 
 

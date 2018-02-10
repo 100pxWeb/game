@@ -7,7 +7,9 @@
  */
 namespace App\Controller;
 
+use App\Entity\TavernTask;
 use App\Entity\Window_user_stats;
+use App\Repository\TavernTaskRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,8 +67,82 @@ class GameController extends AbstractController
             'user_info' => $baseArray,
             'user_window_stats' => $goldArray
         );
-
         echo json_encode($newArray);
+
+        return new Response('');
+    }
+
+    /**
+     * @Route("tavern_json", name="tavern_json")
+     */
+    public function tavernJson(){
+        $user_id = $this->get('session')->get('user_id');
+        $query = $this->getDoctrine()
+            ->getRepository(Window_user_stats::class)
+            ->findOneBy(array('id' => $user_id));
+
+        $user_level = $query->level;
+
+        $compar_from = $user_level;
+        $compar_to = $user_level + 5;
+
+        $query = $this->getDoctrine()
+            ->getRepository(TavernTask::class)
+            ->findByLvlCompar($compar_from, $compar_to);
+
+        shuffle($query);
+
+        $first_task_id = $query[0]->id;
+
+        $taskArray = array(
+            'task_content' => $query[0]->task_content,
+            'task_time' => $query[0]->task_time,
+            'task_reward' => $query[0]->task_reward,
+            'task_gold_reward' => $query[0]->task_gold_reward,
+            'task_item_reward' => $query[0]->task_item_reward,
+            'task_special_reward' => $query[0]->task_special_reward,
+            'task_title' => $query[0]->task_title
+        );
+
+        shuffle($query);
+
+        $second_task_id = $query[0]->id;
+
+        if($first_task_id == $second_task_id){
+            while($first_task_id == $second_task_id){
+                shuffle($query);
+                $second_task_id = $query[0]->id;
+            }
+            $task2Array = array(
+                'task_content' => $query[0]->task_content,
+                'task_time' => $query[0]->task_time,
+                'task_reward' => $query[0]->task_reward,
+                'task_gold_reward' => $query[0]->task_gold_reward,
+                'task_item_reward' => $query[0]->task_item_reward,
+                'task_special_reward' => $query[0]->task_special_reward,
+                'task_title' => $query[0]->task_title
+            );
+        } else {
+            $task2Array = array(
+                'task_content' => $query[0]->task_content,
+                'task_time' => $query[0]->task_time,
+                'task_reward' => $query[0]->task_reward,
+                'task_gold_reward' => $query[0]->task_gold_reward,
+                'task_item_reward' => $query[0]->task_item_reward,
+                'task_special_reward' => $query[0]->task_special_reward,
+                'task_title' => $query[0]->task_title
+            );
+        }
+
+
+
+
+        $taskJson = array(
+            'task_info' => $taskArray,
+            'task2_info' => $task2Array
+        );
+
+        echo json_encode($taskJson);
 
         return new Response('');
     }
