@@ -113,7 +113,7 @@ class Tavern extends React.Component {
                             </div>
                             <div className="task_rewards">
                                 Stamina:
-                            </div>
+                            </div> 
                             <div className="task_select">
 
                             </div>
