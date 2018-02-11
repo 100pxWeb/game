@@ -392,6 +392,14 @@
         <argument type="service" id="service_locator.aqxUcvZ.App\Controller\QueryController"/>
       </call>
     </service>
+    <service id="App\Controller\TavernController" class="App\Controller\TavernController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <tag name="container.service_subscriber.locator" id="service_locator.aqxUcvZ.App\Controller\TavernController"/>
+      <call method="setContainer">
+        <argument type="service" id="service_locator.aqxUcvZ.App\Controller\TavernController"/>
+      </call>
+    </service>
     <service id="App\Controller\UsersController" class="App\Controller\UsersController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4020,6 +4028,9 @@
     <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\QueryController" class="App\Controller\QueryController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\TavernController" class="App\Controller\TavernController" public="false" autowire="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TavernController" class="App\Controller\TavernController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\TavernController" class="App\Controller\TavernController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\UsersController" class="App\Controller\UsersController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4464,6 +4475,11 @@
     </service>
     <service id="service_locator.aqxUcvZ.App\Controller\QueryController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\QueryController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service="service_locator.aqxUcvZ" method="withContext"/>
+    </service>
+    <service id="service_locator.aqxUcvZ.App\Controller\TavernController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\TavernController</argument>
       <argument type="service" id="service_container"/>
       <factory service="service_locator.aqxUcvZ" method="withContext"/>
     </service>

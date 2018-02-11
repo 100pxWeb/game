@@ -50,6 +50,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\GameController::tavernJson',  '_route' => 'tavern_json',);
         }
 
+        // app_game_tasklist
+        if ('/test/tav' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\GameController::taskList',  '_route' => 'app_game_tasklist',);
+        }
+
         // query_only
         if ('/new/task' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\QueryController::querys',  '_route' => 'query_only',);

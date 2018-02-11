@@ -79,54 +79,52 @@ class GameController extends AbstractController
     public function tavernJson(){
         $user_id = $this->get('session')->get('user_id');
         $query = $this->getDoctrine()
-            ->getRepository(Window_user_stats::class)
-            ->findOneBy(array('id' => $user_id));
+            ->getRepository(ActiveTask::class)
+            ->findOneBy(array('user_id' => $user_id));
 
-        $user_level = $query->level;
+        if($query){
 
-        $compar_from = $user_level;
-        $compar_to = $user_level + 5;
+            // wykonuje zadanie
 
-        $query = $this->getDoctrine()
-            ->getRepository(TavernTask::class)
-            ->findByLvlCompar($compar_from, $compar_to);
-
-        shuffle($query);
-
-        $first_task_id = $query[0]->id;
-
-        $taskArray = array(
-            'task_id' => $query[0]->id,
-            'task_content' => $query[0]->task_content,
-            'task_time' => $query[0]->task_time,
-            'task_reward' => $query[0]->task_reward,
-            'task_gold_reward' => $query[0]->task_gold_reward,
-            'task_item_reward' => $query[0]->task_item_reward,
-            'task_special_reward' => $query[0]->task_special_reward,
-            'task_title' => $query[0]->task_title
-        );
-
-        shuffle($query);
-
-        $second_task_id = $query[0]->id;
-
-        if($first_task_id == $second_task_id){
-            while($first_task_id == $second_task_id){
-                shuffle($query);
-                $second_task_id = $query[0]->id;
-            }
-            $task2Array = array(
-                'task_id' => $query[0]->id,
-                'task_content' => $query[0]->task_content,
-                'task_time' => $query[0]->task_time,
-                'task_reward' => $query[0]->task_reward,
-                'task_gold_reward' => $query[0]->task_gold_reward,
-                'task_item_reward' => $query[0]->task_item_reward,
-                'task_special_reward' => $query[0]->task_special_reward,
-                'task_title' => $query[0]->task_title
+            $taskArray = array(
+                'task_id' => $query->task_id,
+                'task_content' => null,
+                'task_time' => null,
+                'task_reward' => null,
+                'task_gold_reward' => null,
+                'task_item_reward' => null,
+                'task_special_reward' => null,
+                'task_title' => null
             );
+
+            $jsonArray = array(
+                task_info => $taskArray
+            );
+
+            echo json_encode($jsonArray);
         } else {
-            $task2Array = array(
+
+            // nie wykonuje zadanie
+
+            $user_id = $this->get('session')->get('user_id');
+            $query = $this->getDoctrine()
+                ->getRepository(Window_user_stats::class)
+                ->findOneBy(array('id' => $user_id));
+
+            $user_level = $query->level;
+
+            $compar_from = $user_level;
+            $compar_to = $user_level + 5;
+
+            $query = $this->getDoctrine()
+                ->getRepository(TavernTask::class)
+                ->findByLvlCompar($compar_from, $compar_to);
+
+            shuffle($query);
+
+            $first_task_id = $query[0]->id;
+
+            $taskArray = array(
                 'task_id' => $query[0]->id,
                 'task_content' => $query[0]->task_content,
                 'task_time' => $query[0]->task_time,
@@ -136,19 +134,49 @@ class GameController extends AbstractController
                 'task_special_reward' => $query[0]->task_special_reward,
                 'task_title' => $query[0]->task_title
             );
+
+            shuffle($query);
+
+            $second_task_id = $query[0]->id;
+
+            if ($first_task_id == $second_task_id) {
+                while ($first_task_id == $second_task_id) {
+                    shuffle($query);
+                    $second_task_id = $query[0]->id;
+                }
+                $task2Array = array(
+                    'task_id' => $query[0]->id,
+                    'task_content' => $query[0]->task_content,
+                    'task_time' => $query[0]->task_time,
+                    'task_reward' => $query[0]->task_reward,
+                    'task_gold_reward' => $query[0]->task_gold_reward,
+                    'task_item_reward' => $query[0]->task_item_reward,
+                    'task_special_reward' => $query[0]->task_special_reward,
+                    'task_title' => $query[0]->task_title
+                );
+            } else {
+                $task2Array = array(
+                    'task_id' => $query[0]->id,
+                    'task_content' => $query[0]->task_content,
+                    'task_time' => $query[0]->task_time,
+                    'task_reward' => $query[0]->task_reward,
+                    'task_gold_reward' => $query[0]->task_gold_reward,
+                    'task_item_reward' => $query[0]->task_item_reward,
+                    'task_special_reward' => $query[0]->task_special_reward,
+                    'task_title' => $query[0]->task_title
+                );
+            }
+
+
+            $taskJson = array(
+                'task_info' => $taskArray,
+                'task2_info' => $task2Array
+            );
+
+            echo json_encode($taskJson);
+
+            return new Response('');
         }
-
-
-
-
-        $taskJson = array(
-            'task_info' => $taskArray,
-            'task2_info' => $task2Array
-        );
-
-        echo json_encode($taskJson);
-
-        return new Response('');
     }
 
 
@@ -170,6 +198,24 @@ class GameController extends AbstractController
         $do = $this->getDoctrine()->getManager();
         $do->persist($query);
         $do->flush();
+
+        return new Response('');
+    }
+
+
+    /**
+     * @Route("test/tav")
+     */
+    public function taskList(){
+        $user_id = $this->get('session')->get('user_id');
+        $query = $this->getDoctrine()
+            ->getRepository(ActiveTask::class)
+            ->findOneBy(array('user_id' => 3));
+
+        if($query){
+            echo $query->task_id;
+        }
+
 
         return new Response('');
     }
